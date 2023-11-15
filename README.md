@@ -53,7 +53,14 @@
     - [:dart: Features](#dart-features)
   - [:toolbox: Getting Started](#toolbox-getting-started)
     - [:bangbang: Prerequisites](#bangbang-prerequisites)
-    - [:gear: Installation](#gear-installation) - [Build Docker image](#build-docker-image) - [MongoDB Database Setup](#mongodb-database-setup) - [Backend API Setup](#backend-api-setup) - [Any issue with the pods ? check logs](#any-issue-with-the-pods--check-logs) - [Grafana setup](#grafana-setup) - [Destroy Kubernetes resources and cluster](#destroy-kubernetes-resources-and-cluster)
+    - [:gear: Installation](#gear-installation)
+      - [:small_blue_diamond: Build Docker image](#small_blue_diamond-build-docker-image)
+      - [:small_blue_diamond: MongoDB Database Setup](#small_blue_diamond-mongodb-database-setup)
+      - [:small_blue_diamond: Backend API Setup](#small_blue_diamond-backend-api-setup)
+      - [:small_blue_diamond: Frontend Client Setup](#small_blue_diamond-frontend-client-setup)
+      - [:small_orange_diamond: Any issue with the pods ? check logs](#small_orange_diamond-any-issue-with-the-pods--check-logs)
+      - [:small_blue_diamond: Monitoring Setup](#small_blue_diamond-monitoring-setup)
+      - [:small_blue_diamond: Destroy Kubernetes Resources and Cluster](#small_blue_diamond-destroy-kubernetes-resources-and-cluster)
   - [:compass: Roadmap](#compass-roadmap)
   - [:wave: Contributing](#wave-contributing)
   - [:warning: License](#warning-license)
@@ -205,7 +212,7 @@ kubectl logs -f -n kube-system \
   -l app.kubernetes.io/name=aws-load-balancer-controller
 ```
 
-###### Build Docker image
+#### :small_blue_diamond: Build Docker image
 
 **For Mac:**
 
@@ -263,7 +270,7 @@ kubectl create ns workshop
 kubectl config set-context --current --namespace workshop
 ```
 
-###### MongoDB Database Setup
+#### :small_blue_diamond: MongoDB Database Setup
 
 **To create MongoDB Resources**
 
@@ -274,7 +281,7 @@ kubectl apply -f deploy.yaml
 kubectl apply -f service.yaml
 ```
 
-###### Backend API Setup
+#### :small_blue_diamond: Backend API Setup
 
 Create NodeJs API deployment by running the following command:
 
@@ -283,7 +290,7 @@ kubectl apply -f backend-deployment.yaml
 kubectl apply -f backend-service.yaml
 ```
 
-**Frontend setup**
+#### :small_blue_diamond: Frontend Client Setup
 
 Create the Frontend  resource. In the terminal run the following command:
 
@@ -298,13 +305,13 @@ Finally create the final load balancer to allow internet traffic:
 kubectl apply -f full_stack_lb.yaml
 ```
 
-###### Any issue with the pods ? check logs
+#### :small_orange_diamond: Any issue with the pods ? check logs
 
 ```bash
 kubectl logs -f POD_ID -f
 ```
 
-###### Grafana setup
+#### :small_blue_diamond: Monitoring Setup
 
 **Verify Services**
 
@@ -327,7 +334,7 @@ Import Dashboard ID: 1860
 
 Exlore more at: https://grafana.com/grafana/dashboards/
 
-###### Destroy Kubernetes resources and cluster
+#### :small_blue_diamond: Destroy Kubernetes Resources and Cluster
 
 ```bash
 cd ./k8s_manifests
